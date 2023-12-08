@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
 
+
 class BasePage():
 
     # конструктор — метод, который вызывается, когда мы создаем объект
