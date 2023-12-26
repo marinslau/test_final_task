@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
 
 	def add_product_to_basket(self):
@@ -9,7 +10,7 @@ class ProductPage(BasePage):
 
 
 
-	# проверка сообщений после добавления товара
+	# проверка сообщений после добавления товара в корзину
 	def should_be_message_page(self):
 		self.should_be_message_add_product()
 		self.should_be_message_price_product()
@@ -36,9 +37,11 @@ class ProductPage(BasePage):
 
 
 	# проверка, что нет сообщения об успешном добавлении продукта
+	# негативная проверка
 	def should_not_be_success_message(self):
 		assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
 
 	# проверка после добавления в корзину, что сообщение о добавлении товара исчезает
+	# негативная проверка
 	def success_message_should_disappear(self):
 		assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappear, but should be"

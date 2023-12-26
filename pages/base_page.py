@@ -31,6 +31,7 @@ class BasePage():
             return False
         return True
 
+    # негативная проверка
     # метод, который проверяет, что элемент не появляется на странице в течение заданного времени
     def is_not_element_present(self, method, css_selector, timeout=4):
         try:
@@ -39,6 +40,7 @@ class BasePage():
             return True
         return False
 
+    # негативная проверка
     # метод, который проверяет, что какой-то элемент исчезает
     # 1 - означает частоту опроса - т.е. WebDriver ждёт 4 секунды и делает запросы каждую секунду
     def is_disappeared(self, method, css_selector, timeout=4):
@@ -56,6 +58,10 @@ class BasePage():
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
+
+    def go_to_basket_page(self):
+        basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        basket_button.click()
 
 
 
