@@ -7,9 +7,20 @@ class BasePageLocators():
 
     BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group a.btn-default")
 
+    # для тестов @pytest.mark.authorized_user
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+
+    # для тестов @pytest.mark.authorized_user
+    EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
+    PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
+    PASSWORD_AGAIN = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTRATION_BUTTON = (By.CSS_SELECTOR, "button[name='registration_submit']")
+
 
 class ProductPageLocators():
     ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
@@ -20,6 +31,7 @@ class ProductPageLocators():
     MESSAGE_PRODUCT_PRICE = (By.CSS_SELECTOR, "#messages .alert:nth-child(3) strong")
 
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert:nth-child(1)")
+
 
 class BasketPageLocators():
     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner p")
