@@ -1,9 +1,10 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 
+from selenium.common.exceptions import TimeoutException
+
 import math
 
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -65,7 +66,7 @@ class BasePage():
 
 
 
-    # алерт - проверочный код
+    # для алерта - проверочный код
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
