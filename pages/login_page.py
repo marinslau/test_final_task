@@ -24,7 +24,6 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not presented"
 
 
-
 # для тестов @pytest.mark.authorized_user
     def register_new_user(self, email, password):
 
