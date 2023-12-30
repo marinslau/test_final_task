@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 
 
+
 # обработчик, который считывает из командной строки параметры browser_name и language
 # а потом в getoption его значение присваиваем browser_name и language
 def pytest_addoption(parser):
