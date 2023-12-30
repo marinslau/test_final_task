@@ -1,6 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-
 from selenium.common.exceptions import TimeoutException
 
 import math
@@ -9,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from .locators import BasePageLocators
+
 
 
 class BasePage():
@@ -23,7 +23,6 @@ class BasePage():
         self.browser.get(self.url)
 
     
-
     # метод, который проверяет существует ли элемент
     def is_element_present(self, method, css_selector):
         try:
@@ -43,14 +42,13 @@ class BasePage():
 
     # негативная проверка
     # метод, который проверяет, что какой-то элемент исчезает
-    # 1 - означает частоту опроса - т.е. WebDriver ждёт 4 секунды и делает запросы каждую секунду
+    # 1 - частота опроса - т.е. WebDriver ждёт 4 секунды и делает запросы каждую секунду
     def is_disappeared(self, method, css_selector, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(EC.presence_of_element_located((method, css_selector)))
         except TimeoutException:
             return False
         return True
-
 
 
     def should_be_login_link(self):
@@ -63,7 +61,6 @@ class BasePage():
     def go_to_basket_page(self):
         basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
         basket_button.click()
-
 
 
     # для алерта - проверочный код
@@ -80,7 +77,6 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
 
 
 # для тестов @pytest.mark.authorized_user
